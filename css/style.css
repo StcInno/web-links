@@ -134,13 +134,13 @@ article:last-of-type {
 	grid-row: 7 / 8;
 }
 .lacture-git {
-	background-image: url('img/git.png');
+	background-image: url('../img/git.png');
 	background-size: contain;
 	background-position: 100% 20%;
 	grid-row: 14 / 15;
 }
 .lacture-bem {
-	background-image: url('img/blocks.svg');
+	background-image: url('../img/blocks.svg');
 	background-size: contain;
 	grid-row: 15 / 16;
 }
@@ -242,6 +242,12 @@ ol {
 		margin-left: 2em;
 		margin-bottom: 1em;
 	}
+}
+.search-form {
+	margin-bottom: 1em;
+}
+.site-search {
+	width: 100%;
 }
 .hide {
 	border: 0;
