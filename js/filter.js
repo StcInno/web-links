@@ -42,7 +42,7 @@ function filter(evt) {
 		}
 	);
 	section.forEach(
-		function hideArticles(item) {
+		function hideSections(item) {
 			if (! item.querySelector('.show')) {
 				item.classList.add('hide');
 			}
