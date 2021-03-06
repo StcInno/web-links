@@ -259,6 +259,6 @@ ol {
 	position: absolute;
 	width: 1px;
 }
-.show {
-	
+.first-item {
+	margin-top: 2em;
 }

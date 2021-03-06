@@ -18,13 +18,16 @@ function filter(evt) {
 			listLinks.forEach(
 				function allLinks(item) {
 					let linkText = item.innerHTML.toUpperCase();
+					let firstItem = main.querySelector('article:not(.hide)');
 					if (linkText.includes(inputValue)) {
 						info.classList.add('show');
-						info.classList.remove('hide');		
+						info.classList.remove('hide');
+						firstItem.classList.remove('first-item');		
 					}
 					else {
 						info.classList.add('hide');
 						info.classList.remove('show');
+						firstItem.classList.add('first-item');
 					}
 				}
 			);
