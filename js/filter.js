@@ -55,10 +55,18 @@ function filter(evt) {
 
 function autoReset() {
 			if (input.value == null, input.value == "") {
-				let all = main.querySelectorAll('.hide');
-				all.forEach(
+				let allHide = main.querySelectorAll('.hide');
+				let allShow = main.querySelectorAll('.show');
+				allHide.forEach(
 					function showAll(items) {
 						items.classList.remove('hide');
+						items.classList.remove('show');
+					}
+				);
+				allShow.forEach(
+					function showAll(items) {
+						items.classList.remove('hide');
+						items.classList.remove('show');
 					}
 				);
 			}
