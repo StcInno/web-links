@@ -3,6 +3,12 @@ let main = document.querySelector('main');
 let article = main.querySelectorAll('article');
 let section = main.querySelectorAll('section');
 let listItems = main.querySelectorAll('li');
+let form = document.querySelector('.search-form');
+
+form.addEventListener('submit', submit);
+form.addEventListener('keyup', autoReset);
+form.addEventListener('keyup', filter);
+form.addEventListener('keyup', filterHeadings);
 
 function submit(evt) {
 	evt.preventDefault();
@@ -111,10 +117,3 @@ function autoReset() {
 		return;
 	}			
 }
-
-let form = document.querySelector('.search-form');
-
-form.addEventListener('submit', submit);
-form.addEventListener('keyup', autoReset);
-form.addEventListener('keyup', filter);
-form.addEventListener('keyup', filterHeadings);
