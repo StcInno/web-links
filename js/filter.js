@@ -70,6 +70,8 @@ function filterHeadings(evt) {
 			if (headingText.includes(inputValue)) {
 				thisArticle.classList.add('show');
 				thisArticle.classList.remove('hide');
+				let a = thisArticle.querySelectorAll('.hide');
+				a.forEach(item => {item.classList.remove('hide');});
 			}
 			else if (thisArticle.querySelector('.show')) {
 				return;
