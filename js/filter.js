@@ -2,6 +2,7 @@ let input = document.querySelector('#site-search');
 let main = document.querySelector('main');
 let article = main.querySelectorAll('article');
 let section = main.querySelectorAll('section');
+let listItems = main.querySelectorAll('li');
 
 function submit(evt) {
 	evt.preventDefault();
@@ -10,7 +11,6 @@ function submit(evt) {
 function filter(evt) {
 	evt.preventDefault();
 	let inputValue = input.value.toUpperCase();	
-	let listItems = main.querySelectorAll('li');
 	listItems.forEach(
 		function getMatch(info) {
 			let listLinks = info.querySelectorAll('a');
