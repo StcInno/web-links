@@ -2,7 +2,6 @@ let input = document.querySelector('#site-search');
 let main = document.querySelector('main');
 let article = main.querySelectorAll('article');
 let section = main.querySelectorAll('section');
-let listItems = main.querySelectorAll('li');
 
 function submit(evt) {
 	evt.preventDefault();
@@ -11,7 +10,7 @@ function submit(evt) {
 function filter(evt) {
 	evt.preventDefault();
 	let inputValue = input.value.toUpperCase();	
-
+	let listItems = main.querySelectorAll('li');
 	listItems.forEach(
 		function getMatch(info) {
 			let listLinks = info.querySelectorAll('a');
@@ -36,48 +35,52 @@ function filter(evt) {
 					}
 				}
 			);
-		}
-	);
-	
-	// let heading = main.querySelectorAll('h2');
-	// heading.forEach(
-	// 	function allHeads(item) {
-	// 		let headingText = item.innerHTML.toUpperCase();
-	// 		let thisArticle = item.parentElement;
-	// 		console.log(thisArticle);
-	// 		if (headingText.includes(inputValue)) {
-	// 			thisArticle.classList.add('show');
-	// 			thisArticle.classList.remove('hide');	
-	// 		}
-	// 		else {
-	// 			thisArticle.classList.add('hide');
-	// 			thisArticle.classList.remove('show');
-	// 		}
-	// 	}
-	// );
-
-	article.forEach(
-		function hideArticles(item) {
-			if (! item.querySelector('.show')) {
-				item.classList.add('hide');
-			}
-			else {
-				item.classList.remove('hide');
-			}
-		}
-	);
-	section.forEach(
-		function hideSections(item) {
-			if (! item.querySelector('.show')) {
-				item.classList.add('hide');
-			}
-			else {
-				item.classList.remove('hide');
-			}
+			article.forEach(
+				function hideArticles(item) {
+					if (! item.querySelector('.show')) {
+						item.classList.add('hide');
+					}
+					else {
+						item.classList.remove('hide');
+					}
+				}
+			);
+			section.forEach(
+				function hideSections(item) {
+					if (! item.querySelector('.show')) {
+						item.classList.add('hide');
+					}
+					else {
+						item.classList.remove('hide');
+					}
+				}
+			);
 		}
 	);
 }
 
+function filterHeadings(evt) {
+	evt.preventDefault();
+	let inputValue = input.value.toUpperCase();	
+	let headings = main.querySelectorAll('h2');
+	headings.forEach(
+		function headings(item) {
+			let headingText = item.innerHTML.toUpperCase();
+			let thisArticle = item.parentElement;
+			if (headingText.includes(inputValue)) {
+				thisArticle.classList.add('show');
+				thisArticle.classList.remove('hide');
+			}
+			else if (thisArticle.querySelector('.show')) {
+				return;
+			}
+			else {
+				thisArticle.classList.add('hide');
+				thisArticle.classList.remove('show');
+			}
+		}
+	);
+}
 
 function autoReset() {
 	if (input.value == null, input.value == "") {
@@ -109,8 +112,7 @@ function autoReset() {
 
 let form = document.querySelector('.search-form');
 
-form.addEventListener('keyup', autoReset);
-
-form.addEventListener('keyup', filter);
-
 form.addEventListener('submit', submit);
+form.addEventListener('keyup', autoReset);
+form.addEventListener('keyup', filter);
+form.addEventListener('keyup', filterHeadings);
