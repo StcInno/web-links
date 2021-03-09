@@ -27,16 +27,9 @@ function filter(evt) {
 			listLinks.forEach(
 				function allLinks(item) {
 					let linkText = item.innerHTML.toUpperCase();
-					// let firstItem = main.querySelector('article:not(.hide)');
 					if (linkText.includes(inputValue)) {
 						info.classList.add('show');
 						info.classList.remove('hide');
-						// if (firstItem != null) {
-						// 	firstItem.classList.add('first-item');	
-						// }
-						// else {
-						// 	return;
-						// }
 					}
 					else {
 						info.classList.add('hide');
