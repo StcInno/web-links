@@ -4,11 +4,13 @@ let article = main.querySelectorAll('article');
 let section = main.querySelectorAll('section');
 let listItems = main.querySelectorAll('li');
 let form = document.querySelector('.search-form');
+let allFirstItems = main.querySelectorAll('article.hide');
 
 form.addEventListener('submit', submit);
 form.addEventListener('keyup', filter);
 form.addEventListener('keyup', filterHeadings);
 form.addEventListener('keyup', scrollToTop);
+form.addEventListener('keyup', firstItemMargin);
 form.addEventListener('keyup', autoReset);
 
 
@@ -25,16 +27,16 @@ function filter(evt) {
 			listLinks.forEach(
 				function allLinks(item) {
 					let linkText = item.innerHTML.toUpperCase();
-					let firstItem = main.querySelector('article:not(.hide)');
+					// let firstItem = main.querySelector('article:not(.hide)');
 					if (linkText.includes(inputValue)) {
 						info.classList.add('show');
 						info.classList.remove('hide');
-						if (firstItem != null) {
-							firstItem.classList.add('first-item');	
-						}
-						else {
-							return;
-						}
+						// if (firstItem != null) {
+						// 	firstItem.classList.add('first-item');	
+						// }
+						// else {
+						// 	return;
+						// }
 					}
 					else {
 						info.classList.add('hide');
@@ -90,6 +92,16 @@ function filterHeadings(evt) {
 			}
 		}
 	);
+}
+
+function firstItemMargin() {
+	let firstItem = main.querySelector('article:not(.hide)');
+	if (firstItem != null) {
+		firstItem.classList.add('first-item');	
+	}
+	else {
+		allFirstItems.forEach(item => item.classList.remove('hide'));
+	}
 }
 
 function autoReset() {
