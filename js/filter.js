@@ -66,7 +66,7 @@ function filter(evt) {
 	window.scrollTo({
     top: 0,
     behavior: "smooth"
-});
+	});
 }
 
 function filterHeadings(evt) {
