@@ -126,6 +126,5 @@ function scrollToTop() {
 			top: 0,
 			behavior: "smooth"
 		});
-		console.log('скролл');
 	}
 }
