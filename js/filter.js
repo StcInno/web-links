@@ -121,10 +121,11 @@ function autoReset() {
 }
 
 function scrollToTop() {
-	if (document.body.scrollTop === 0) {
+	if (window.scrollY !== 0) {
 		window.scrollTo({
 			top: 0,
 			behavior: "smooth"
 		});
+		console.log('скролл');
 	}
 }
