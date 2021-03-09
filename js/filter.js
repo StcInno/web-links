@@ -6,10 +6,10 @@ let listItems = main.querySelectorAll('li');
 let form = document.querySelector('.search-form');
 
 form.addEventListener('submit', submit);
-form.addEventListener('keyup', autoReset);
 form.addEventListener('keyup', filter);
 form.addEventListener('keyup', filterHeadings);
 form.addEventListener('keyup', scrollToTop);
+form.addEventListener('keyup', autoReset);
 
 
 function submit(evt) {
