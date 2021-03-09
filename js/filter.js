@@ -9,6 +9,8 @@ form.addEventListener('submit', submit);
 form.addEventListener('keyup', autoReset);
 form.addEventListener('keyup', filter);
 form.addEventListener('keyup', filterHeadings);
+form.addEventListener('keyup', scrollToTop);
+
 
 function submit(evt) {
 	evt.preventDefault();
@@ -63,10 +65,6 @@ function filter(evt) {
 			);
 		}
 	);
-	window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-	});
 }
 
 function filterHeadings(evt) {
@@ -120,4 +118,13 @@ function autoReset() {
 	else {
 		return;
 	}			
+}
+
+function scrollToTop() {
+	if (document.body.scrollTop === 0) {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		});
+	}
 }
